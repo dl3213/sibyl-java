@@ -1,3 +1,7 @@
 # Project exclude paths
+/application/target/
 /cloud-provider-payment8001/target/
 /system-gateway-gateway9527/target/
+/system-config-center-3344/target/
+/system-task/target/
+/.idea/
