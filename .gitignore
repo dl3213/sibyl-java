@@ -1,4 +1,4 @@
-# Project exclude paths
+# Project exclude paths test
 /application/target/
 /cloud-provider-payment8001/target/
 /system-gateway-gateway9527/target/
