@@ -14,6 +14,7 @@
     <module>application</module>
     <module>system-config-center-3344</module>
     <module>system-gateway-gateway9527</module>
+      <module>system-task</module>
   </modules>
 
 
