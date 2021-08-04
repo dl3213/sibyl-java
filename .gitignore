@@ -4,5 +4,6 @@
 /system-gateway-gateway9527/target/
 /system-config-center-3344/target/
 /system-task/target/
-/redis-service/taget/
+/redis-service/target/
+/auth-service/target
 /.idea/

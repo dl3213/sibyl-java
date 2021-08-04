@@ -1,6 +1,7 @@
 package com.dl3213.sibyl.redis;
 
 import com.dl3213.sibyl.redis.pojo.Player;
+import com.dl3213.sibyl.redis.util.RedisUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,15 @@ public class RedisAppTest {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+    @Test
+    public void test2(){
+        redisUtil.set("name","redisUtil");
+        System.err.println(redisUtil.get("name"));
+    }
 
     @SneakyThrows
     @Test
