@@ -1,0 +1,20 @@
+# Spring Kafka配置
+# 此文件为基本配置文件，请勿随意修改，若要调整参数，请在自己的模块下，新建一份kafka的配置文件，重新定义需要调整的参数值
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092                                                               # kafka地址(可集群)
+    listener:
+      concurrency: 1                                                                                # 消费者线程数
+    producer:                                                                                       # 生产者
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer                        # 序列化方式
+      value-serializer: com.kyzh.commons.service.kafka.serialization.JSONSerializer                 # 序列化方式
+    consumer:                                                                                       # 消费者
+      #group-id: default                                                                            # 消费组别
+      enable-auto-commit: true                                                                      # 自动提交（默认开启）
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer                    # 序列化方式
+      value-deserializer: com.kyzh.commons.service.kafka.serialization.JSONDeserializer             # 序列化方式
+    topic:
+      num-partitions: ${KAFKA_NUM_PARTITIONS:3}                                                     # topic分区数
+      replication-factor: ${KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR:3}                               # topic副本因子数
+    logger:
+      enabled: true                                                                                 # 激活默认日志（默认激活）
