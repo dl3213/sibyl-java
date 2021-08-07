@@ -14,6 +14,37 @@ spring:
         file-extension: yml
         namespace: b61e6a05-2c65-40f6-99cf-bafc53b89e57
         group: sibyl
+        extension-configs:
+          - data-id: datasource.yml
+            group: sibyl
+            refresh: true
+          - data-id: sysConfig.yml
+            group: admin
+            refresh: true
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: ${spring.application.name}
+  config:
+    type: nacos
+    nacos:
+      namespace: e72bdcb5-1d3b-4265-9174-0a0a4c709c38
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      namespace: e72bdcb5-1d3b-4265-9174-0a0a4c709c38
+      username: nacos
+      password: nacos
+
+
 player:
   pid: 3213
   name: dyingleaf4dev

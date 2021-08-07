@@ -22,6 +22,28 @@ spring:
             group: admin
             refresh: true
 
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: ${spring.application.name}
+  config:
+    type: nacos
+    nacos:
+      namespace: e72bdcb5-1d3b-4265-9174-0a0a4c709c38
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: SEATA_GROUP
+      namespace: e72bdcb5-1d3b-4265-9174-0a0a4c709c38
+      username: nacos
+      password: nacos
+
 player:
   pid: 3213
   name: dyingleaf4dev
