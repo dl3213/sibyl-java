@@ -1,0 +1,8 @@
+
+server:
+  port: 18010
+spring:
+  application:
+    name: nacos-service-provicer
+  profiles:
+    active: dev #开发环境

@@ -1,0 +1,17 @@
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        #必须配置ip地址
+        server-addr: localhost:8848
+        # 将自己的服务注册到注册中心
+        register-enabled: true
+        namespace: 3eeb1524-2be6-4dac-8da0-7e50fe9f416f
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        namespace: 3eeb1524-2be6-4dac-8da0-7e50fe9f416f
+player:
+  pid: 3213
+  name: dyingleaf4test

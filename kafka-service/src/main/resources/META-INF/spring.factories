@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.kyzh.commons.service.kafka.config.KafkaConfig,\
-com.kyzh.commons.service.kafka.config.KafkaHandlerConfig,\
-com.kyzh.commons.service.kafka.producer.reply.config.KafkaReplyAutoConfiguration,\
-com.kyzh.commons.service.kafka.registry.config.KafkaAppRegistryConfiguration

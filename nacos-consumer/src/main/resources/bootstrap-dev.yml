@@ -1,0 +1,28 @@
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        #必须配置ip地址
+        server-addr: localhost:8848
+        # 将自己的服务注册到注册中心
+        register-enabled: true
+        namespace: b61e6a05-2c65-40f6-99cf-bafc53b89e57
+        group: sibyl
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        namespace: b61e6a05-2c65-40f6-99cf-bafc53b89e57
+        group: sibyl
+        extension-configs:
+          - data-id: datasource.yml
+            group: sibyl
+            refresh: true
+          - data-id: sysConfig.yml
+            group: admin
+            refresh: true
+
+player:
+  pid: 3213
+  name: dyingleaf4dev
+
