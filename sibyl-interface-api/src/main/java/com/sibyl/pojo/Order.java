@@ -1,11 +1,10 @@
-package com.sibyl.nacosconsumer.pojo;
+package com.sibyl.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import java.awt.peer.LabelPeer;
 import java.math.BigDecimal;
 
 /**

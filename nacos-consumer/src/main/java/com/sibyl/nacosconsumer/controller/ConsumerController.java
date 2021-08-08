@@ -1,12 +1,14 @@
 package com.sibyl.nacosconsumer.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.sibyl.nacosconsumer.mapper.OrderMapper;
-import com.sibyl.nacosconsumer.pojo.Order;
+import com.sibyl.pojo.Order;
+import com.sibyl.service.StorageService;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +23,7 @@ import java.math.BigDecimal;
  */
 @RestController
 @RefreshScope
+@Component
 public class ConsumerController {
 
     @Value("${player.pid}")
@@ -35,6 +38,9 @@ public class ConsumerController {
     @Autowired
     private OrderMapper orderMapper;
 
+    @Reference(check = false)
+    private StorageService storageService;
+
     @RequestMapping("/orderCreate")
     @GlobalTransactional
     public String orderCreate(Long uid,Long pid){
@@ -42,8 +48,7 @@ public class ConsumerController {
                 .setUserId(uid)
                 .setProductId(pid)
                 .setMoney(BigDecimal.valueOf(97.89)).setStatus(0));
-        String object = restTemplate.getForObject(
-                "http://nacos-service-provicer/orderCreate?pid="+ pid + "&used=1", String.class);
+        int object = storageService.updateSto(pid,2);
         return insert+ " => " + object;
     }
 

@@ -1,4 +1,4 @@
-package com.sibyl.nacosprovider.service;
+package com.sibyl.service;
 
 /**
  * @Classname StorageService
@@ -7,5 +7,5 @@ package com.sibyl.nacosprovider.service;
  * @Created by dyingleaf3213
  */
 public interface StorageService {
-    public int saveStorageRecord(Long uid,Long pid);
+    public int updateSto(Long pid,Integer uesd);
 }

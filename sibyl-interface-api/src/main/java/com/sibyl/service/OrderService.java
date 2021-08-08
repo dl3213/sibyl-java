@@ -1,7 +1,6 @@
-package com.sibyl.nacosconsumer.service;
+package com.sibyl.service;
 
-import com.sibyl.nacosconsumer.pojo.Order;
-import org.springframework.stereotype.Service;
+import com.sibyl.pojo.Order;
 
 /**
  * @Classname OrderService

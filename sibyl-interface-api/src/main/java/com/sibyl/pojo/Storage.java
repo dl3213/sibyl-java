@@ -1,4 +1,4 @@
-package com.sibyl.nacosprovider.pojo;
+package com.sibyl.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

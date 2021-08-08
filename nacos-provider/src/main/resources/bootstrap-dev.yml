@@ -45,6 +45,26 @@ seata:
       password: nacos
 
 
+dubbo:
+  scan:
+    base-packages: com.sibyl.nacosprovider.service
+  protocol:
+    name: dubbo
+    port: -1
+    host: 127.0.0.1
+    serialization: kryo
+  registry:
+    address: nacos://127.0.0.1:8848
+    check: false
+    group: sibyl
+    register: true
+    parameters:
+      namespace: b61e6a05-2c65-40f6-99cf-bafc53b89e57
+    timeout: 30000
+
+#  cloud:
+#    subscribed-services: kbp-admin-service
+
 player:
   pid: 3213
   name: dyingleaf4dev
