@@ -17,7 +17,7 @@
       <module>system-task</module>
       <module>redis-service</module>
       <module>auth-service</module>
-      <module>juc</module>
+
     <module>dubbo-provider</module>
     <module>dubbo-consumer</module>
     <module>sibyl-common</module>
@@ -30,8 +30,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
     <junit.version>4.12</junit.version>
     <lombok.version>1.18.10</lombok.version>
     <log4j.version>1.2.17</log4j.version>
