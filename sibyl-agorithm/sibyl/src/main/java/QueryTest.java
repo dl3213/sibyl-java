@@ -1,3 +1,8 @@
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
+
 import java.util.concurrent.*;
 
 /**
@@ -10,12 +15,59 @@ public class QueryTest {
 
 
     public static void main(String[] args) {
-//        blockingMode();//阻塞 => 250+
+        blockingMode();//阻塞 => 250+
         concurrentMode();//并发 => 150+
+        reactiveMode(); // 方法1:400+ just()完全调用A()B() >= 同步阻塞
+                        // 方式2：100+
 
+        sleep(100000L);//等待线程结束，查看结果
     }
 
+    //响应式
+    public static void reactiveMode(){  //new => reactiveMode(QueryTest queryTest,Observable<QueryTest> observable){}
+        QueryTest test = new QueryTest();
+        Long startTime = System.currentTimeMillis();
 
+        // 与下方写法类似
+        // Flowable<Integer[]> flowable = Flowable.just(test.queryA());
+
+        //发布,方法1:错误写法
+//        Observable<Integer[]> observableA =
+//                Observable.just(test.queryA());
+//        Observable<Integer[]> observableB =
+//                Observable.just(test.queryB());
+
+        //发布,方法2:
+        Observable<Integer[]> observableA =
+                Observable.fromCallable(test::queryA);
+
+        observableA
+                .subscribeOn(Schedulers.newThread())
+                .subscribe();//没有订阅没有执行
+
+        Observable<Integer[]> observableB =
+                Observable.fromCallable(test::queryB);
+
+        //流式处理,类似Stream
+        //开发人员不需要关注并发或线程池
+        observableB
+                .subscribeOn(Schedulers.newThread())//决定同步/异步
+                .doOnNext(value->{//数据消费正常逻辑
+
+                })
+                .doOnError(e->{//数据消费异常逻辑
+
+                })
+                .doOnComplete(()->{ //doOnComplete or doFinally
+                    //执行结束逻辑
+                });
+
+        //可合并操作:[1,2,...]+[5,6,...]=[1,...,10]
+//        observableA.mergeWith(observableB).forEach();
+
+        Long cost = System.currentTimeMillis() - startTime;
+        System.err.println("cost => " + cost);
+    }
 
     //并发
     public static void concurrentMode(){
@@ -51,11 +103,13 @@ public class QueryTest {
 
     public Integer[] queryA(){
         sleep(100L);
+        System.err.println("A is doing => " + Thread.currentThread().getName());
         return of(1,2,3,4,5);
     }
 
     public Integer[] queryB(){
         sleep(150L);
+        System.err.println("B is doing => " + Thread.currentThread().getName());
         return of(6,7,8,9,10);
     }
     public static void sleep(Long time){

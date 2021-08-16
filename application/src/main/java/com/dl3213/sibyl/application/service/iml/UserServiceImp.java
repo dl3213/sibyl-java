@@ -26,6 +26,7 @@ public class UserServiceImp implements UserService {
 
         LambdaQueryWrapper<User> userLambdaQueryWrapper = Wrappers.lambdaQuery();
         Page<User> userPage = new Page<>(1, 2);
+        LambdaQueryWrapper<Object> objectLambdaQueryWrapper = Wrappers.lambdaQuery();
         return userMapper.selectPage(userPage,null);
     }
 }
