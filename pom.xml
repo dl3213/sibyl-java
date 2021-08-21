@@ -24,7 +24,8 @@
       <module>sibyl-interface-api</module>
     <module>kafka-service</module>
     <module>common-core</module>
-      <module>sibyl-agorithm</module>
+      <module>sibyl-algorithm</module>
+      <module>sibyl-activity</module>
   </modules>
 
 
