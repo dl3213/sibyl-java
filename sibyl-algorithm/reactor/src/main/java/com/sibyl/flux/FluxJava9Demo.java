@@ -1,6 +1,6 @@
 package com.sibyl.flux;
 
-import com.sibyl.util.Utils;
+import com.sibyl.Utils;
 
 import java.util.Random;
 import java.util.concurrent.Flow;

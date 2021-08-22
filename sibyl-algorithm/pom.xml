@@ -15,7 +15,6 @@
     <modules>
         <module>reactor</module>
         <module>juc</module>
-        <module>sibyl</module>
         <module>reactive-web-demo</module>
     </modules>
 

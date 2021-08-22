@@ -1,7 +1,9 @@
+package com.sibyl;
+
 import java.util.stream.Stream;
 
 /**
- * @Classname StreamApiDemo
+ * @Classname com.sibyl.StreamApiDemo
  * @Description TODO
  * @Date 2021/8/11 21:10
  * @Created by dyingleaf3213

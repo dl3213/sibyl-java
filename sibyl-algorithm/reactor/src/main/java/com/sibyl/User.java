@@ -1,25 +1,24 @@
-package com.dl3213.sibyl.application.pojo;
+package com.sibyl;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
+import lombok.experimental.Accessors;
 
 /**
  * @Classname User
  * @Description TODO
- * @Date 2021/7/27 22:31
+ * @Date 2021/8/22 19:38
  * @Created by dyingleaf3213
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("user")
+@Accessors(chain = true)
 public class User {
     private Long id;
     private String name;
     private Integer age;
     private String email;
+    private Integer belongs2;
 }

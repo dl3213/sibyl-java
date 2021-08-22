@@ -1,6 +1,6 @@
 package com.sibyl.spring;
 
-import com.sibyl.util.Utils;
+import com.sibyl.Utils;
 import org.springframework.core.task.AsyncListenableTaskExecutor;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.util.concurrent.ListenableFuture;

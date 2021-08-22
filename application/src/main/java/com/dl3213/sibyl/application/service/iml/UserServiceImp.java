@@ -9,6 +9,8 @@ import com.dl3213.sibyl.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Classname UserServiceImp
  * @Description TODO
@@ -22,11 +24,13 @@ public class UserServiceImp implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public Page<User> getBy() {
+    public List<User> getAllUser() {
+        return userMapper.selectList(null);
+    }
 
-        LambdaQueryWrapper<User> userLambdaQueryWrapper = Wrappers.lambdaQuery();
+    @Override
+    public Page<User> getPageOfUser() {
         Page<User> userPage = new Page<>(1, 2);
-        LambdaQueryWrapper<Object> objectLambdaQueryWrapper = Wrappers.lambdaQuery();
         return userMapper.selectPage(userPage,null);
     }
 }

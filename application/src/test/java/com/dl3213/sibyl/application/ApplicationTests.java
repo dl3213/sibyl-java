@@ -12,11 +12,10 @@ import org.junit.jupiter.api.Test;
 //import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -31,12 +30,19 @@ class ApplicationTests {
     private UserServiceImp userServiceImp;
 
     @Test
+    public void funTest(){
+        List<User> allUser = userServiceImp.getAllUser();
+        User user = allUser.stream().max(Comparator.comparing(User::getAge)).get();
+        System.err.println(user);
+    }
+
+    @Test
     public void sqlTest(){
         List<UserVo> userVoList = new ArrayList<>();
 
-        Page<User> users = userServiceImp.getBy();
+        Page<User> users = userServiceImp.getPageOfUser();
         users.getRecords().forEach(item ->{
-            System.err.println(item.getDateTime());
+            System.err.println(item.getName());
         });
         final List<UserVo> userVos =
                 CommonBeanUtils.copyListProperties(users.getRecords(), UserVo.class);

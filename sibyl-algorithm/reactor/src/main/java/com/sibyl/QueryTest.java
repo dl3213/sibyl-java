@@ -1,7 +1,9 @@
-import io.reactivex.Flowable;
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.schedulers.Schedulers;
+package com.sibyl;
+
+//import io.reactivex.Observable;
+//import io.reactivex.schedulers.Schedulers;
+import rx.Observable;
+import rx.schedulers.Schedulers;
 
 import java.util.concurrent.*;
 
@@ -24,7 +26,7 @@ public class QueryTest {
     }
 
     //响应式
-    public static void reactiveMode(){  //new => reactiveMode(QueryTest queryTest,Observable<QueryTest> observable){}
+    public static void reactiveMode(){  //new => reactiveMode(com.sibyl.QueryTest queryTest,Observable<com.sibyl.QueryTest> observable){}
         QueryTest test = new QueryTest();
         Long startTime = System.currentTimeMillis();
 
@@ -58,9 +60,11 @@ public class QueryTest {
                 .doOnError(e->{//数据消费异常逻辑
 
                 })
-                .doOnComplete(()->{ //doOnComplete or doFinally
-                    //执行结束逻辑
-                });
+//                .doOnComplete(()->{ //doOnComplete or doFinally
+//                    //执行结束逻辑
+//                }
+//                )
+        ;
 
         //可合并操作:[1,2,...]+[5,6,...]=[1,...,10]
 //        observableA.mergeWith(observableB).forEach();

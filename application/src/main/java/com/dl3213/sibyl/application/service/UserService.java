@@ -3,6 +3,8 @@ package com.dl3213.sibyl.application.service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dl3213.sibyl.application.pojo.User;
 
+import java.util.List;
+
 /**
  * @Classname UserService
  * @Description TODO
@@ -11,5 +13,7 @@ import com.dl3213.sibyl.application.pojo.User;
  */
 public interface UserService {
 
-    Page<User> getBy();
+    List<User> getAllUser();
+
+    Page<User> getPageOfUser();
 }

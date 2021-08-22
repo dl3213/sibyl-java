@@ -1,6 +1,7 @@
 package com.sibyl.flux;
 
-import com.sibyl.util.Utils;
+
+import com.sibyl.Utils;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 

@@ -1,4 +1,4 @@
-package com.sibyl.util;
+package com.sibyl;
 
 /**
  * @Classname Utils

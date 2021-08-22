@@ -27,7 +27,7 @@ public class HelloController {
         return ResponseUtil.success(new UserVo().setDateTime(new Date()));
     }
 
-    @GetMapping("/get")
+    @RequestMapping("/get")
     public String hello(){
         return "hello,world";
     }
