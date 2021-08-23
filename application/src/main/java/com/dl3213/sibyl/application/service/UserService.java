@@ -16,4 +16,6 @@ public interface UserService {
     List<User> getAllUser();
 
     Page<User> getPageOfUser();
+
+    User findById(Long id);
 }

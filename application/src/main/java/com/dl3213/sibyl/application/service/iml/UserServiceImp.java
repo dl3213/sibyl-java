@@ -33,4 +33,9 @@ public class UserServiceImp implements UserService {
         Page<User> userPage = new Page<>(1, 2);
         return userMapper.selectPage(userPage,null);
     }
+
+    @Override
+    public User findById(Long id) {
+        return userMapper.selectById(id);
+    }
 }

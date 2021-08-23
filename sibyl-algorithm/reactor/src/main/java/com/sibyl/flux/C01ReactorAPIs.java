@@ -123,14 +123,14 @@ public class C01ReactorAPIs {
 
     public static void main(String[] args) {
         createFluxFromExistingData();
-        createMonoFromExistingData();
-        createFluxProgrammatically();
-        createMonoAsync();
-        mapVsFlatMap();
-        monoFluxInterchange();
-        useThenForFlow();
-        zipMonoOrFlux();
-        errorHandling();
+//        createMonoFromExistingData();
+//        createFluxProgrammatically();
+//        createMonoAsync();
+//        mapVsFlatMap();
+//        monoFluxInterchange();
+//        useThenForFlow();
+//        zipMonoOrFlux();
+//        errorHandling();
     }
 
 }
