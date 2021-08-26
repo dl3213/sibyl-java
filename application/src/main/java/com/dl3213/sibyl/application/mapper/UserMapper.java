@@ -2,6 +2,7 @@ package com.dl3213.sibyl.application.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dl3213.sibyl.application.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,5 +12,6 @@ import org.springframework.stereotype.Repository;
  * @Created by dyingleaf3213
  */
 @Repository
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 }
