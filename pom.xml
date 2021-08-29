@@ -14,9 +14,9 @@
     <module>application</module>
     <module>system-config-center-3344</module>
     <module>system-gateway-gateway9527</module>
-      <module>system-task</module>
+      <module>sibyl-quartz</module>
       <module>redis-service</module>
-      <module>auth-service</module>
+      <module>shiro-service</module>
 
     <module>dubbo-provider</module>
     <module>dubbo-consumer</module>

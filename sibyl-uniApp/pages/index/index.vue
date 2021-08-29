@@ -5,8 +5,8 @@
 			<text class="title">{{title}}</text>
 		</view>
 		<view class="login">
-			<input type="text" value="" />
-			<input type="password" value="" />
+			<input type="text" value="" placeholder="username"/>
+			<input type="password" value="" placeholder="password"/>
 			<button type="default">login</button>
 		</view>
 	</view>
