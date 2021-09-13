@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @Created by dyingleaf3213
  */
 @Configuration
-@MapperScan("com.dl3213.sibyl.application.mapper")
+@MapperScan("com.sibyl.application.mapper")
 public class MybatisPlusConfig {
 
     /**

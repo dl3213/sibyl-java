@@ -26,6 +26,7 @@
     <module>common-core</module>
       <module>sibyl-algorithm</module>
       <module>sibyl-activity</module>
+      <module>appFromHsWeb</module>
   </modules>
 
 
