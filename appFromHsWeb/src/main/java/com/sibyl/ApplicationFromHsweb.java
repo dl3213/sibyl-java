@@ -1,5 +1,6 @@
 package com.sibyl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Create 2021/09/13 22:33
  */
 @SpringBootApplication
+@MapperScan(basePackages = "com.sibyl.dao", markerInterface = org.hswebframework.web.dao.Dao.class)
 public class ApplicationFromHsweb {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationFromHsweb.class,args);

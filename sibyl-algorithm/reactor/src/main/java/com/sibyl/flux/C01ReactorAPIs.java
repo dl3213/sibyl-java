@@ -31,12 +31,13 @@ public class C01ReactorAPIs {
     }
 
     private static void createFluxProgrammatically() {
+        // ()->1 :初始状态
         var generateFlux = Flux.generate(() -> 1, (state, sink) -> {
             sink.next("message #" + state);
-            if (state == 10) {
+            if (state == 10) {// 到达10,关闭管道
                 sink.complete();
             }
-            return state + 1;
+            return state + 1;//否则+1
         });
         subscribeFlux("generateFlux", generateFlux);
     }
@@ -45,7 +46,8 @@ public class C01ReactorAPIs {
         flux.doOnSubscribe(s -> System.out.print(varName + ": "))
                 .doOnNext(e -> System.out.print(e + ", "))
                 .doOnComplete(System.out::println)
-                .subscribe();
+                .subscribe()
+        ;
     }
 
     private static void createMonoAsync() {
@@ -72,8 +74,10 @@ public class C01ReactorAPIs {
     }
 
     private static void mapVsFlatMap() {
+        //map:普通javaBean转换，从一个数据转换成另一个数据
         var mapFlux = Flux.just(1, 2, 3).map(i -> "id #" + i);
         subscribeFlux("mapFlux", mapFlux);
+        //flatMap:必须返回一个reactor,通过已有bean转换其他??? , 从一个管道转换成另一个管道
         var flatMapFlux = Flux.just(1, 2, 3).flatMap(i -> Mono.just("id #" + i));
         subscribeFlux("flatMapFlux", flatMapFlux);
     }
@@ -87,7 +91,7 @@ public class C01ReactorAPIs {
     }
 
     private static void monoFluxInterchange() {
-        var monoFlux = Mono.just(1).flux();
+        var monoFlux = Mono.just(1).flux ();
         subscribeFlux("monoFlux", monoFlux);
         var fluxMono = Flux.just(1, 2, 3).collectList();
         blockMono("fluxMono", fluxMono);
@@ -122,14 +126,14 @@ public class C01ReactorAPIs {
     }
 
     public static void main(String[] args) {
-        createFluxFromExistingData();
+//        createFluxFromExistingData();
 //        createMonoFromExistingData();
 //        createFluxProgrammatically();
 //        createMonoAsync();
 //        mapVsFlatMap();
 //        monoFluxInterchange();
 //        useThenForFlow();
-//        zipMonoOrFlux();
+        zipMonoOrFlux();
 //        errorHandling();
     }
 

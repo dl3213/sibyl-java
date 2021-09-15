@@ -26,7 +26,6 @@ import java.util.stream.IntStream;
  * @Created by dyingleaf3213
  */
 @RestController
-@RequestMapping("/rt")
 public class ReactiveControllor {
 
     @Autowired
