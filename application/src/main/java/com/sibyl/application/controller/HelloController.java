@@ -21,7 +21,7 @@ public class HelloController {
 
     @RequestMapping("/getUser")
     public ResponseUtil getUser(){
-        return ResponseUtil.success(new UserVo().setDateTime(new Date()));
+        return ResponseUtil.success(200,userServiceImp.getPageOfUser());
     }
 
     @RequestMapping("/get")

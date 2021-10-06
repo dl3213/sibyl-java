@@ -1,6 +1,8 @@
 package com.sibyl.flux;
 
 
+import org.apache.coyote.Response;
+import org.springframework.http.ResponseEntity;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
@@ -108,13 +110,13 @@ public class C01ReactorAPIs {
     }
 
     private static void errorHandling() {
-        var throwExceptionFlux = Flux.range(1, 10).map(i -> {
-            if (i > 5) {
-                throw (new RuntimeException("Something wrong"));
-            }
-            return "item #" + i;
-        });
-        subscribeFlux("throwExceptionFlux", throwExceptionFlux);
+//        var throwExceptionFlux = Flux.range(1, 10).map(i -> {
+//            if (i > 5) {
+//                throw (new RuntimeException("Something wrong"));
+//            }
+//            return "item #" + i;
+//        });
+//        subscribeFlux("throwExceptionFlux", throwExceptionFlux);
 
         var errorFlux = Flux.range(1, 10).flatMap(i -> {
             if (i > 5) {
@@ -133,8 +135,8 @@ public class C01ReactorAPIs {
 //        mapVsFlatMap();
 //        monoFluxInterchange();
 //        useThenForFlow();
-        zipMonoOrFlux();
-//        errorHandling();
+//        zipMonoOrFlux();
+        errorHandling();
     }
 
 }

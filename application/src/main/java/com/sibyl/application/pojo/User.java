@@ -21,6 +21,7 @@ import java.util.Date;
 @TableName("user")
 public class User {
     private Long id;
+    private String uid;
     private String name;
     private Integer age;
     private String email;

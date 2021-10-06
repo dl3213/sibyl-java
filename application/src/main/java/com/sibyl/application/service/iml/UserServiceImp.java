@@ -1,5 +1,6 @@
 package com.sibyl.application.service.iml;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.pojo.User;
@@ -7,6 +8,8 @@ import com.sibyl.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,8 +31,10 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Page<User> getPageOfUser() {
-        Page<User> userPage = new Page<>(1, 2);
-        return userMapper.selectPage(userPage,null);
+        Page<User> userPage = new Page<>(1, 10);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.orderBy(true,true,"uid");
+        return userMapper.selectPage(userPage,queryWrapper);
     }
 
     @Override

@@ -2,31 +2,30 @@ package com.sibyl.test;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.function.BiFunction;
 
-/**
- * @Classname Test2
- * @Description TODO
- * @Date 2020/8/1 12:33
- * @Created by dyingleaf3213
- */
-//@Slf4j
+@Slf4j(topic = "c.Test2")
 public class Test2 {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        FutureTask<Integer> task = new FutureTask(new Callable() {
-            @Override
-            public Object call() throws Exception {
-                System.err.println("running .....");
-                Thread.sleep(2000);
-                return 100;
-            }
-        });
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                int sum = sum((a, b) -> a + b, 100, -10, 1);
+            }).start();
+        }
+    }
 
-        Thread t1 = new Thread(task,"task");
-        t1.start();
+    public static int sum(BiFunction<Integer, Integer, Integer> function, int init, int amount, int n) {
+        if (n == 1) {
+            return (function.apply(init, amount));
+        }
+        int s = sum(function, (function.apply(init, amount)), amount, n - 1);
+        return s;
+    }
+}
 
-        System.err.println("{}" + task.get());
+class Accumulator implements BiFunction<Integer, Integer, Integer> {
+    @Override
+    public Integer apply(Integer a, Integer b) {
+        return new Integer(a + b);
     }
 }

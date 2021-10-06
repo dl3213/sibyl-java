@@ -2,19 +2,34 @@ package com.sibyl.test;
 
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * @Classname Test1
- * @Description TODO
- * @Date 2020/8/1 12:27
- * @Created by dyingleaf3213
- */
-//@Slf4j
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+
+@Slf4j(topic = "c.Test1")
 public class Test1 {
     public static void main(String[] args) {
-        Runnable r1 = () -> {
-            System.err.println("running ......");
-        };
-        Thread t1 = new Thread(r1,"t2");
-        t1.start();
+        DateTimeFormatter stf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                TemporalAccessor parse = stf.parse("1951-04-21");
+                log.debug("{}", parse);
+            }).start();
+        }
+    }
+
+    private static void test() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                synchronized (sdf) {
+                    try {
+                        log.debug("{}", sdf.parse("1951-04-21"));
+                    } catch (Exception e) {
+                        log.error("{}", e);
+                    }
+                }
+            }).start();
+        }
     }
 }
