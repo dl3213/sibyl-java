@@ -14,6 +14,10 @@ public class MainTest {
     static final int EXCLUSIVE_MASK = (1 << SHARED_SHIFT) - 1;
 
     public static void main(String[] args) {
+
+        System.err.println( 3 );
+        System.err.println( 3 << 1);
+
         //整型是占用四个字节32位
         Integer i = 1024000;//
         int ib = 0b11111111111111110000000000000000;

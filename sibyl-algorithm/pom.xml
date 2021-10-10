@@ -16,6 +16,7 @@
         <module>reactor</module>
         <module>juc</module>
         <module>reactive-web-demo</module>
+        <module>design-pattern</module>
     </modules>
 
     <properties>
