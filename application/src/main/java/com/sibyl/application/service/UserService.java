@@ -2,6 +2,7 @@ package com.sibyl.application.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sibyl.application.pojo.User;
+import org.springframework.scheduling.annotation.Async;
 
 import java.util.List;
 
@@ -13,9 +14,13 @@ import java.util.List;
  */
 public interface UserService {
 
+    void userHandler();
+
     List<User> getAllUser();
 
     Page<User> getPageOfUser();
 
     User findById(Long id);
+
+    void test();
 }

@@ -1,4 +1,4 @@
-package com.sibyl;
+package com.sibyl.lembdaStreamFunction;
 
 import java.util.function.*;
 
