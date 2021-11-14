@@ -1,5 +1,8 @@
 package com.sibyl.application.demo;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @Classname FunctionalPrograming
  * @Description TODO
@@ -10,6 +13,18 @@ public class FunctionalPrograming {
 
 
     public static void main(String[] args) {
-        System.err.println();
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+//        integers.forEach(i->{
+//            if(i<3) System.err.println(i);
+//            return;
+//        });
+        for (int i : integers) {
+            if(i < 3) {
+                System.err.println(i);
+                return;
+            }
+            System.err.println(i);
+        }
+
     }
 }
