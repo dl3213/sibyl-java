@@ -27,6 +27,7 @@
       <module>sibyl-algorithm</module>
       <module>sibyl-activity</module>
       <module>appFromHsWeb</module>
+      <module>sibyl-search</module>
   </modules>
 
 

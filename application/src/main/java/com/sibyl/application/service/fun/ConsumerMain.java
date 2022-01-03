@@ -1,10 +1,9 @@
 package com.sibyl.application.service.fun;
 
-import com.sibyl.application.pojo.User;
+import com.sibyl.application.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * @Classname ConsumerMain

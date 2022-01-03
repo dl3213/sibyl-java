@@ -1,8 +1,7 @@
 package com.sibyl.application.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sibyl.application.pojo.User;
-import org.springframework.scheduling.annotation.Async;
+import com.sibyl.application.entity.User;
 
 import java.util.List;
 

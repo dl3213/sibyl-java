@@ -1,7 +1,7 @@
 package com.sibyl.application.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sibyl.application.pojo.User;
+import com.sibyl.application.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

@@ -3,20 +3,15 @@ package com.sibyl.application.service.iml;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sibyl.application.mapper.UserMapper;
-import com.sibyl.application.pojo.User;
-import com.sibyl.application.service.FunctionHandler;
+import com.sibyl.application.entity.User;
 import com.sibyl.application.service.UserService;
 import com.sibyl.application.service.fun.ConsumerMain;
-import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.management.Query;
-import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Handler;
 
 /**
  * @Classname UserServiceImp
@@ -33,6 +28,7 @@ public class UserServiceImp implements UserService {
     private ConsumerMain consumerMain;
 
     @Override
+    @Retryable()
     public void userHandler() {
         User byId = findById(3213L);
         consumerMain.userHandler(byId);

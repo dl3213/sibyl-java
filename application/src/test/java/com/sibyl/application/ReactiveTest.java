@@ -2,17 +2,11 @@ package com.sibyl.application;
 
 import com.sibyl.Application;
 import com.sibyl.application.mapper.UserMapper;
-import com.sibyl.application.pojo.User;
-import com.sibyl.application.service.UserService;
-import com.sibyl.application.service.iml.UserServiceImp;
+import com.sibyl.application.entity.User;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

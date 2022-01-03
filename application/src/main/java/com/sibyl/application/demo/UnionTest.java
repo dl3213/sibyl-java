@@ -26,11 +26,11 @@ public class UnionTest {
         o2.setMin(100);
         o2.setMax(200);
         Obj o3 = new Obj();
-        o3.setMin(90);
-        o3.setMax(150);
+        o3.setMin(150);
+        o3.setMax(250);
         Obj o4 = new Obj();
-        o4.setMin(111);
-        o4.setMax(500);
+        o4.setMin(1);
+        o4.setMax(5);
         Obj o5 = new Obj();
         o5.setMin(1000);
         o5.setMax(5000);

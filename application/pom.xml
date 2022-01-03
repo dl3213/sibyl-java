@@ -24,7 +24,21 @@
 
     <dependencies>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi &ndash;&gt;-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.aspectj/aspectjweaver &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.aspectj</groupId>-->
+<!--            <artifactId>aspectjweaver</artifactId>-->
+<!--            <version>1.9.8.M1</version>-->
+<!--            <scope>runtime</scope>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>org.aspectj</groupId >
+            <artifactId>aspectjweaver</artifactId >
+            <version>1.8.7</version >
+        </dependency>
+
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.apache.poi</groupId>-->
 <!--            <artifactId>poi</artifactId>-->
@@ -51,18 +65,16 @@
         </dependency>
 
 
-
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>3.0.9</version>
-            <type>pom</type>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.codehaus.groovy</groupId>-->
+<!--            <artifactId>groovy-all</artifactId>-->
+<!--            <version>3.0.9</version>-->
+<!--            <type>pom</type>-->
+<!--        </dependency>-->
         <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-r2dbc &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
@@ -150,6 +162,10 @@
             <artifactId>reactor-test</artifactId>
             <version>3.4.9</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
         </dependency>
 
     </dependencies>

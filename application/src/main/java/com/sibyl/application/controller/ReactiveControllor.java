@@ -1,11 +1,10 @@
 package com.sibyl.application.controller;
 
 import com.sibyl.application.mapper.UserMapper;
-import com.sibyl.application.pojo.User;
+import com.sibyl.application.entity.User;
 import com.sibyl.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -16,8 +15,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
 
 /**
  * @Classname ReactiveControllor

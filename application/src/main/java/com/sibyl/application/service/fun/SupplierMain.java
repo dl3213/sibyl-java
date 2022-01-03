@@ -1,9 +1,7 @@
 package com.sibyl.application.service.fun;
 
-import com.sibyl.application.pojo.User;
-import com.sibyl.application.service.UserService;
+import com.sibyl.application.entity.User;
 
-import javax.annotation.Resource;
 import java.util.function.Supplier;
 
 /**
