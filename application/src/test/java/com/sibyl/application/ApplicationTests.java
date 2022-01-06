@@ -1,14 +1,15 @@
 package com.sibyl.application;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.LambdaUtils;
 import com.baomidou.mybatisplus.core.toolkit.support.ColumnCache;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sibyl.Application;
 import com.sibyl.application.base.CommonBeanUtils;
+import com.sibyl.application.entity.WarnRecord;
 import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.entity.User;
+import com.sibyl.application.mapper.WarnRecordMapper;
 import com.sibyl.application.service.iml.UserServiceImp;
 import com.sibyl.application.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
@@ -20,9 +21,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.Serializable;
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -31,6 +32,24 @@ import java.util.function.Function;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,classes = Application.class)
 @Slf4j
 class ApplicationTests {
+
+    @Autowired
+    private WarnRecordMapper warnRecordMapper;
+
+    @Test
+    public void warnTest(){
+        QueryWrapper<WarnRecord> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().in(WarnRecord::getId,1479078169913872386L,1479078173399339009L);
+        List<WarnRecord> warnRecords = warnRecordMapper.selectList(queryWrapper);
+        System.err.println(warnRecords);
+//        for (int i = 0; i < 10; i++) {
+//            WarnRecord record = new WarnRecord();
+//            record.setUid("dl3123");
+//            record.setPsychoPass((int) (Math.random()*100 +1));
+//            record.setCreateTime(LocalDateTime.now());
+//            warnRecordMapper.insert(record);
+//        }
+    }
 
     @Autowired
     private UserMapper userMapper;
