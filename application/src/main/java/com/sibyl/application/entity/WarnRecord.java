@@ -24,6 +24,6 @@ public class WarnRecord {
     private Long id;
     private String uid;
     private Integer psychoPass;
-    private Date createTime;
+    private LocalDateTime createTime;
 //    private LocalDateTime updateTime;
 }

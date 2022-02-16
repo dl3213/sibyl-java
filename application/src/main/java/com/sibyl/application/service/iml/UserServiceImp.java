@@ -6,7 +6,7 @@ import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.entity.User;
 import com.sibyl.application.service.UserService;
 import com.sibyl.application.service.fun.ConsumerMain;
-import org.springframework.retry.annotation.Retryable;
+//import org.springframework.retry.annotation.Retryable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +28,7 @@ public class UserServiceImp implements UserService {
     private ConsumerMain consumerMain;
 
     @Override
-    @Retryable()
+//    @Retryable()
     public void userHandler() {
         User byId = findById(3213L);
         consumerMain.userHandler(byId);

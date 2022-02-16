@@ -10,7 +10,7 @@ import com.sibyl.application.entity.WarnRecord;
 import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.entity.User;
 import com.sibyl.application.mapper.WarnRecordMapper;
-import com.sibyl.application.service.iml.UserServiceImp;
+//import com.sibyl.application.service.iml.UserServiceImp;
 import com.sibyl.application.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -24,6 +24,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -39,14 +40,14 @@ class ApplicationTests {
     @Test
     public void warnTest(){
         QueryWrapper<WarnRecord> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().in(WarnRecord::getId,1479078169913872386L,1479078173399339009L);
+        //queryWrapper.lambda().in(WarnRecord::getId,1479078169913872386L,1479078173399339009L);
         List<WarnRecord> warnRecords = warnRecordMapper.selectList(queryWrapper);
-        System.err.println(warnRecords);
+        warnRecords.forEach(System.err::println);
 //        for (int i = 0; i < 10; i++) {
 //            WarnRecord record = new WarnRecord();
 //            record.setUid("dl3123");
 //            record.setPsychoPass((int) (Math.random()*100 +1));
-//            record.setCreateTime(LocalDateTime.now());
+//            record.setCreateTime(new Date());
 //            warnRecordMapper.insert(record);
 //        }
     }
@@ -54,8 +55,8 @@ class ApplicationTests {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private UserServiceImp userServiceImp;
+//    @Autowired
+//    private UserServiceImp userServiceImp;
 
     @Test
     public void serializedLambda() throws Exception {
@@ -95,15 +96,15 @@ class ApplicationTests {
 
     @Test
     public void sqlTest(){
-        List<UserVo> userVoList = new ArrayList<>();
-
-        Page<User> users = userServiceImp.getPageOfUser();
-        users.getRecords().forEach(item ->{
-            System.err.println(item.getName());
-        });
-        final List<UserVo> userVos =
-                CommonBeanUtils.copyListProperties(users.getRecords(), UserVo.class);
-        System.err.println("");
+//        List<UserVo> userVoList = new ArrayList<>();
+//
+//        Page<User> users = userServiceImp.getPageOfUser();
+//        users.getRecords().forEach(item ->{
+//            System.err.println(item.getName());
+//        });
+//        final List<UserVo> userVos =
+//                CommonBeanUtils.copyListProperties(users.getRecords(), UserVo.class);
+//        System.err.println("");
     }
 
     @Test
