@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author dyingleaf3213
  * @Create 2022/02/16 20:45
  */
-@RestController
+@RestController("/kafka")
 public class KafkaController {
 
     private final static String TOPIC_NAME = "zhTest"; //topic的名称

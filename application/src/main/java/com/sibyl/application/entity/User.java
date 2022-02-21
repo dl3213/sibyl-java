@@ -1,10 +1,8 @@
 package com.sibyl.application.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 /**
  * @Classname User
@@ -17,6 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @TableName("user")
+//@EqualsAndHashCode
+@Accessors(chain = true)
 public class User {
     private Long id;
     private String uid;
