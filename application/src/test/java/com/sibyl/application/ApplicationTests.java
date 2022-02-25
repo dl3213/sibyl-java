@@ -18,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Method;
@@ -36,6 +37,17 @@ class ApplicationTests {
 
     @Autowired
     private WarnRecordMapper warnRecordMapper;
+    @Resource
+    private UserMapper userMapper;
+
+    @Test
+    public void userTest(){
+        userMapper.selectList(null).forEach(u->{
+            System.err.println(u);
+        });
+
+    }
+
 
     @Test
     public void warnTest(){
@@ -51,9 +63,6 @@ class ApplicationTests {
 //            warnRecordMapper.insert(record);
 //        }
     }
-
-    @Autowired
-    private UserMapper userMapper;
 
 //    @Autowired
 //    private UserServiceImp userServiceImp;
@@ -82,8 +91,8 @@ class ApplicationTests {
 
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(User::getName,"dl3213");
-        Map<String, ColumnCache> columnMap = LambdaUtils.getColumnMap(User.class);
-        columnMap.forEach((s, columnCache) -> System.err.println(s+"=="+columnCache));
+        //Map<String, ColumnCache> columnMap = LambdaUtils.getColumnMap(User.class);
+        //columnMap.forEach((s, columnCache) -> System.err.println(s+"=="+columnCache));
 
         Function<User, String> getName = User::getName;
         System.err.println(getName.getClass());

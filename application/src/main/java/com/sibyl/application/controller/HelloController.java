@@ -1,15 +1,12 @@
 package com.sibyl.application.controller;
 
-import com.sibyl.application.base.ResponseUtil;
+import com.sibyl.application.base.R;
 import com.sibyl.application.service.UserService;
-import com.sibyl.application.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
 
 
 @RestController
@@ -28,9 +25,9 @@ public class HelloController {
         return "test";
     }
 
-    @RequestMapping("/getUser")
-    public ResponseUtil getUser(){
-        return ResponseUtil.success(200,userService.getPageOfUser());
+    @GetMapping("/user/page")
+    public R getUser(){
+        return R.success(200,userService.pageOfUser());
     }
 
     @RequestMapping("/get")

@@ -9,13 +9,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>application</artifactId>
-
     <name>application</name>
+    <version>1.0.0</version>
     <description>Application</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <hsweb.framework.version>3.0.6</hsweb.framework.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.locales>zh_CN</project.build.locales>
         <project.build.jdk>${java.version}</project.build.jdk>
@@ -35,13 +34,6 @@
             <version>2.8.1</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--            <version>1.2.8</version>-->
-<!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-spring-boot-starter -->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
@@ -62,31 +54,6 @@
 <!--            <version>1.9.8.M1</version>-->
 <!--            <scope>runtime</scope>-->
 <!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.aspectj</groupId >-->
-<!--            <artifactId>aspectjweaver</artifactId >-->
-<!--            <version>1.8.7</version >-->
-<!--        </dependency>-->
-
-
-        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi-ooxml</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-<!--        <dependency>-->
-<!--            <groupId>joda-time</groupId>-->
-<!--            <artifactId>joda-time</artifactId>-->
-<!--            <version>2.10.12</version>-->
-<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
 <!--        <dependency>-->
@@ -103,19 +70,12 @@
             <version>1.2.8</version>
         </dependency>
 
-        <!--        <dependency>-->
-<!--            <groupId>org.codehaus.groovy</groupId>-->
-<!--            <artifactId>groovy-all</artifactId>-->
-<!--            <version>3.0.9</version>-->
-<!--            <type>pom</type>-->
-<!--        </dependency>-->
         <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-r2dbc &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-data-r2dbc</artifactId>-->
 <!--            <version>2.5.4</version>-->
 <!--        </dependency>-->
-
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
 <!--        <dependency>-->
@@ -151,18 +111,13 @@
 <!--            <artifactId>jackson-annotations</artifactId>-->
 <!--            <version>2.12.3</version>-->
 <!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
-<!--        <dependency>-->
-<!--            <groupId>org.mybatis.spring.boot</groupId>-->
-<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
-<!--            <version>2.2.1</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.0</version>
+            <version>3.5.1</version>
         </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -209,6 +164,26 @@
 <!--            <artifactId>spring-retry</artifactId>-->
 <!--        </dependency>-->
 
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

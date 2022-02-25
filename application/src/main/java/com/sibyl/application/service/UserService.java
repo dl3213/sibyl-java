@@ -15,11 +15,11 @@ public interface UserService {
 
     void userHandler();
 
-    List<User> getAllUser();
+    List<User> queryUsers();
 
-    Page<User> getPageOfUser();
+    Page<User> pageOfUser();
 
-    User findById(Long id);
+    User selectById(Long id);
 
     void test();
 }

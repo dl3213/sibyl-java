@@ -8,16 +8,17 @@ import com.sibyl.application.mapper.WarnRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.jdbc.SQLWarningException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Classname DbTest
@@ -32,6 +33,52 @@ public class DbTest {
     private WarnRecordMapper warnRecordMapper;
     @Resource
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
+
+    @Resource
+    DataSource dataSource;
+
+    @Test
+    public void warnTest111(){
+
+        System.err.println(dataSource.getClass());
+
+        //x(x(8));//18
+        //extractedTest();
+
+//        ArrayList<Object> integers = new ArrayList<>();
+//        integers.add(1);
+//        integers.add(2);
+//        integers.add(3);
+//        integers.remove((Object) 1);
+//
+//        System.err.println(integers.toString());
+
+        double v = 0.1234;
+        float v1 = 0.1234f;
+        System.err.println();
+    }
+
+    private void extractedTest() {
+        try {
+            throw new RuntimeException();
+            //throw new UnsupportedOperationException();
+        }catch (UnsupportedOperationException e){
+            System.err.println(1);
+        }catch (RuntimeException e){
+            System.err.println(2);
+        } catch (Exception e){
+            System.err.println(3);
+        }finally {
+            System.err.println(4);
+        }
+    }
+
+
+    public int x(int n){
+        System.err.println(1);
+        if(n<=3) return 1;
+        return x(n-2)+ x(n-4) + 1;
+    }
 
     @Test
     public void warnTest(){

@@ -1,12 +1,14 @@
 package com.sibyl.application.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 
 /**
  * @Classname MybatisPlusConfig
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2021/7/27 22:57
  * @Created by dyingleaf3213
  */
+@Slf4j
 @Configuration
 @MapperScan("com.sibyl.application.mapper")
 public class MybatisPlusConfig {
@@ -24,12 +27,20 @@ public class MybatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        //分页插件
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        //乐观锁
+        interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         return interceptor;
     }
 
+//    /**
+//     *  乐观锁
+//     */
 //    @Bean
-//    public ConfigurationCustomizer configurationCustomizer() {
-//        return configuration -> configuration.setUseDeprecatedExecutor(false);
+//    public OptimisticLockerInnerInterceptor optimisticLockerInterceptor() {
+//        return new OptimisticLockerInnerInterceptor();
 //    }
+
+
 }

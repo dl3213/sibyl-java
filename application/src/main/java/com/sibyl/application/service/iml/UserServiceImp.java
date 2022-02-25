@@ -30,27 +30,27 @@ public class UserServiceImp implements UserService {
     @Override
 //    @Retryable()
     public void userHandler() {
-        User byId = findById(3213L);
+        User byId = selectById(3213L);
         consumerMain.userHandler(byId);
         System.err.println(byId.getName());
     }
 
 
     @Override
-    public List<User> getAllUser() {
+    public List<User> queryUsers() {
         return userMapper.selectList(null);
     }
 
     @Override
-    public Page<User> getPageOfUser() {
+    public Page<User> pageOfUser() {
         Page<User> userPage = new Page<>(1, 10);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.orderBy(true,true,"uid");
+        //queryWrapper.orderBy(true,true,"uid");
         return userMapper.selectPage(userPage,queryWrapper);
     }
 
     @Override
-    public User findById(Long id) {
+    public User selectById(Long id) {
 
         try {
             //int i = 1/0;

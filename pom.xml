@@ -25,7 +25,6 @@
     <module>common-core</module>
       <module>sibyl-algorithm</module>
       <module>sibyl-activity</module>
-      <module>appFromHsWeb</module>
       <module>sibyl-search</module>
     <module>sibyl-mq</module>
   </modules>
@@ -35,12 +34,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <junit.version>4.12</junit.version>
-    <lombok.version>1.18.10</lombok.version>
-    <log4j.version>1.2.17</log4j.version>
     <mysql.version>8.0.18</mysql.version>
-    <druid.version>1.1.16</druid.version>
-    <dubbo.version>3.0.0</dubbo.version>
   </properties>
 
   <!--子模块继承之后，提供作用：锁定版本+子module不用写groupId和version-->
@@ -81,25 +75,6 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>${mysql.version}</version>
         <scope>runtime</scope>
-      </dependency>
-      <!-- druid-->
-      <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>druid</artifactId>
-        <version>${druid.version}</version>
-      </dependency>
-
-      <!--junit-->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-      </dependency>
-      <!--log4j-->
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

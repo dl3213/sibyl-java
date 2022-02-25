@@ -15,9 +15,10 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Builder
 @TableName("user")
-//@EqualsAndHashCode
+@EqualsAndHashCode
 @Accessors(chain = true)
-public class User {
+@ToString(callSuper = true)
+public class User extends BaseEntity{
     private Long id;
     private String uid;
     private String name;
