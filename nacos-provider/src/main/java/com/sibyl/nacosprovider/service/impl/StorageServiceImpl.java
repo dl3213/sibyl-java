@@ -1,9 +1,7 @@
 package com.sibyl.nacosprovider.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.sibyl.nacosprovider.service.mapper.StorageMapper;
-import com.sibyl.dubbo.comsumer.pojo.Storage;
 import com.sibyl.dubbo.provider.service.StorageService;
+import com.sibyl.nacosprovider.service.mapper.StorageMapper;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,19 +23,12 @@ public class StorageServiceImpl implements StorageService {
 
     public int saveStorageRecord(Long uid,Long pid) {
 
-        return storageMapper.insert(new Storage().setId(uid).setProductId(pid));
+        return 1;
     }
 
     @Override
     public int updateSto(Long pid, Integer used) {
 
-        LambdaQueryWrapper<Storage> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(Storage::getProductId,pid);
-        Storage storage = storageMapper.selectOne(lambdaQueryWrapper);
-
-        storage.setTotal(storage.getTotal()-used);
-//        int i = 1/0;
-        storage.setUsed(storage.getUsed()+used);
-        return storageMapper.updateById(storage);
+        return 1;
     }
 }

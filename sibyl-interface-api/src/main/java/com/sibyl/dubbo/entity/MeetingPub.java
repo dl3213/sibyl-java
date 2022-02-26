@@ -1,4 +1,4 @@
-package com.sibyl.dubbo.comsumer.pojo;
+package com.sibyl.dubbo.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

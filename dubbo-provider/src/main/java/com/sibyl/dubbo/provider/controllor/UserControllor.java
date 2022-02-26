@@ -1,6 +1,6 @@
 package com.sibyl.dubbo.provider.controllor;
 
-import com.sibyl.dubbo.comsumer.pojo.User;
+import com.sibyl.dubbo.entity.User;
 import com.sibyl.dubbo.provider.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

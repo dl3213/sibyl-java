@@ -1,7 +1,7 @@
 package com.sibyl.nacosprovider.service.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sibyl.dubbo.comsumer.pojo.Storage;
+import com.sibyl.dubbo.entity.Storage;
 import org.springframework.stereotype.Repository;
 
 /**

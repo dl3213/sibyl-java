@@ -1,6 +1,6 @@
 package com.sibyl.dubbo.provider.service;
 
-import com.sibyl.dubbo.comsumer.pojo.MeetingPub;
+import com.sibyl.dubbo.entity.MeetingPub;
 
 /**
  * @Classname MeetingPubService

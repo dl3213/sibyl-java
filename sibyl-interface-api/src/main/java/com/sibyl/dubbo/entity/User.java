@@ -1,4 +1,4 @@
-package com.sibyl.dubbo.comsumer.pojo;
+package com.sibyl.dubbo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

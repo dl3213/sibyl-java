@@ -1,7 +1,7 @@
 package com.sibyl.base.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sibyl.dubbo.comsumer.pojo.MeetingPub;
+import com.sibyl.dubbo.entity.MeetingPub;
 import org.springframework.stereotype.Repository;
 
 /**

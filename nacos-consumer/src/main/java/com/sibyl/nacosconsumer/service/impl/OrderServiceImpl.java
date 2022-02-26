@@ -2,7 +2,7 @@ package com.sibyl.nacosconsumer.service.impl;
 
 import com.sibyl.dubbo.provider.service.OrderService;
 import com.sibyl.nacosconsumer.service.mapper.OrderMapper;
-import com.sibyl.dubbo.comsumer.pojo.Order;
+import com.sibyl.dubbo.entity.Order;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +30,10 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     @GlobalTransactional
     public Integer saveOrder(Order order) {
-        log.info("order start ===>");
-        int insert = orderMapper.insert(order);
-//        storageService.
-        log.info("order end ===>");
-        return insert;
+//        log.info("order start ===>");
+//        //int insert = orderMapper.insert(order);
+////        storageService.
+//        log.info("order end ===>");
+        return 1;
     }
 }

@@ -1,7 +1,7 @@
 package com.sibyl.nacosconsumer.service.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sibyl.dubbo.comsumer.pojo.Order;
+import com.sibyl.dubbo.entity.Order;
 import org.springframework.stereotype.Repository;
 
 /**

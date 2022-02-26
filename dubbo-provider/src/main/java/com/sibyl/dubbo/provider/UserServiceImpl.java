@@ -1,6 +1,6 @@
 package com.sibyl.dubbo.provider;
 
-import com.sibyl.dubbo.comsumer.pojo.User;
+import com.sibyl.dubbo.entity.User;
 import com.sibyl.dubbo.provider.service.UserService;
 import com.sibyl.base.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;

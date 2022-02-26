@@ -1,9 +1,8 @@
 package com.sibyl.nacosconsumer.service.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.sibyl.nacosconsumer.service.mapper.OrderMapper;
-import com.sibyl.dubbo.comsumer.pojo.Order;
 import com.sibyl.dubbo.provider.service.StorageService;
+import com.sibyl.nacosconsumer.service.mapper.OrderMapper;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,8 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.math.BigDecimal;
 
 /**
  * @Classname ConsumerController
@@ -44,12 +41,7 @@ public class ConsumerController {
     @RequestMapping("/orderCreate")
     @GlobalTransactional
     public String orderCreate(Long uid,Long pid){
-        int insert = orderMapper.insert(new Order()
-                .setUserId(uid)
-                .setProductId(pid)
-                .setMoney(BigDecimal.valueOf(97.89)).setStatus(0));
-        int object = storageService.updateSto(pid,2);
-        return insert+ " => " + object;
+        return 1+ " => " + 1;
     }
 
     @RequestMapping("/conGet")
