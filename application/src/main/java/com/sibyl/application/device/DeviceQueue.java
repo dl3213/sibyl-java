@@ -1,9 +1,7 @@
 package com.sibyl.application.device;
 
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 

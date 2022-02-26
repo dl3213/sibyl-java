@@ -1,10 +1,8 @@
 package com.sibyl.nacosconsumer.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.sibyl.nacosconsumer.mapper.OrderMapper;
-import com.sibyl.pojo.Order;
-import com.sibyl.service.OrderService;
-import com.sibyl.service.StorageService;
+import com.sibyl.dubbo.provider.service.OrderService;
+import com.sibyl.nacosconsumer.service.mapper.OrderMapper;
+import com.sibyl.dubbo.comsumer.pojo.Order;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

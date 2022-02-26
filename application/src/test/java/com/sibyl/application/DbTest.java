@@ -1,22 +1,19 @@
 package com.sibyl.application;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sibyl.Application;
 import com.sibyl.application.entity.User;
 import com.sibyl.application.entity.WarnRecord;
+import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.mapper.WarnRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.SQLWarningException;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -29,13 +26,27 @@ import java.util.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,classes = Application.class)
 @Slf4j
 public class DbTest {
+
+    public static void main(String[] args) {
+
+    }
+
     @Resource
     private WarnRecordMapper warnRecordMapper;
     @Resource
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
+    @Resource
+    private UserMapper userMapper;
 
     @Resource
     DataSource dataSource;
+    @Test
+    public void test01(){
+        String s = DigestUtils.md5DigestAsHex(("123456"+"sibyl").getBytes());
+        System.err.println(DigestUtils.md5DigestAsHex(s.getBytes()));
+    }
+
+
 
     @Test
     public void warnTest111(){

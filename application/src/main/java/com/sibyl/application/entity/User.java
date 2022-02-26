@@ -3,6 +3,7 @@ package com.sibyl.application.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @Classname User
@@ -13,7 +14,7 @@ import lombok.experimental.Accessors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@SuperBuilder(toBuilder = true)
 @TableName("user")
 @EqualsAndHashCode
 @Accessors(chain = true)
@@ -24,4 +25,6 @@ public class User extends BaseEntity{
     private String name;
     private Integer age;
     private String email;
+
+
 }

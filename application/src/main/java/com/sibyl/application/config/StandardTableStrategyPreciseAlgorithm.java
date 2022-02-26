@@ -2,11 +2,8 @@ package com.sibyl.application.config;
 
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingValue;
-import org.apache.shardingsphere.api.sharding.standard.RangeShardingAlgorithm;
-import org.apache.shardingsphere.api.sharding.standard.RangeShardingValue;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 import java.util.Collection;
 
 /**

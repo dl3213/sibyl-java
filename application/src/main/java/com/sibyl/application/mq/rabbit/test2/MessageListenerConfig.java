@@ -1,7 +1,6 @@
 package com.sibyl.application.mq.rabbit.test2;
 
 import org.springframework.amqp.core.AcknowledgeMode;
-import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Autowired;

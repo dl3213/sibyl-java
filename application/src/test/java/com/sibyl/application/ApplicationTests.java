@@ -1,17 +1,12 @@
 package com.sibyl.application;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.LambdaUtils;
-import com.baomidou.mybatisplus.core.toolkit.support.ColumnCache;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sibyl.Application;
-import com.sibyl.application.base.CommonBeanUtils;
 import com.sibyl.application.entity.WarnRecord;
 import com.sibyl.application.mapper.UserMapper;
 import com.sibyl.application.entity.User;
 import com.sibyl.application.mapper.WarnRecordMapper;
 //import com.sibyl.application.service.iml.UserServiceImp;
-import com.sibyl.application.vo.UserVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 //import org.junit.runner.RunWith;
@@ -22,12 +17,8 @@ import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Method;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 //@RunWith(SpringJUnit4ClassRunner.class)

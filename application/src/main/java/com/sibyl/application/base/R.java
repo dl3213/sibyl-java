@@ -18,7 +18,7 @@ public class R extends HashMap<String, Object> {
     public R() {
         put(CODE_NAME, 200);
         put(MSG_NAME, "操作成功");
-        put(DATA_NAME, "");
+        put(DATA_NAME, null);
     }
 
     public static R success() {
@@ -66,10 +66,10 @@ public class R extends HashMap<String, Object> {
     }
 
 
-    public static R error() {
+    public static R error(CommonEnum internalServerError) {
         R r = new R();
-        r.put(CODE_NAME, 404);
-        r.put(MSG_NAME, "系统繁忙，请稍后再试!");
+        r.put(CODE_NAME, internalServerError.code());
+        r.put(MSG_NAME, internalServerError.msg());
         return r;
     }
 

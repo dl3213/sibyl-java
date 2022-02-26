@@ -45,6 +45,9 @@ public class UserServiceImp implements UserService {
     public Page<User> pageOfUser() {
         Page<User> userPage = new Page<>(1, 10);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+
+        //int i = 1/0;
+
         //queryWrapper.orderBy(true,true,"uid");
         return userMapper.selectPage(userPage,queryWrapper);
     }

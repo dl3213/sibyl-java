@@ -4,7 +4,6 @@ import com.sibyl.application.mq.rabbit.test1.RabbitSender;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -28,7 +27,7 @@ public class RabbitController {
     private RabbitSender rabbitSender;
 
 
-    @RequestMapping("/sendtest")
+    @GetMapping("/sendtest")
     public void send() throws Exception {
         //发送功能就一行代码~
         rabbitSender.send("test", Collections.EMPTY_MAP);

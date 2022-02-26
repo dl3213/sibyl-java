@@ -1,13 +1,12 @@
 package com.sibyl.nacosprovider.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.sibyl.nacosprovider.mapper.StorageMapper;
-import com.sibyl.pojo.Storage;
-import com.sibyl.service.StorageService;
+import com.sibyl.nacosprovider.service.mapper.StorageMapper;
+import com.sibyl.dubbo.comsumer.pojo.Storage;
+import com.sibyl.dubbo.provider.service.StorageService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @Classname StorageServiceImpl

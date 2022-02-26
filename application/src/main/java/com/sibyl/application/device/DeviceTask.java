@@ -3,8 +3,6 @@ package com.sibyl.application.device;
 import lombok.*;
 import lombok.experimental.Accessors;
 
-import java.time.LocalDateTime;
-
 /**
  * @Classname DeviceTask
  * @Description TODO
