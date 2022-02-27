@@ -1,5 +1,7 @@
 package com.sibyl.base.domain;
 
+import lombok.Data;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,8 +11,9 @@ import java.util.Map;
  * @Date 2021/7/27 20:47
  * @Created by dyingleaf3213
  */
+@Data
 public class R extends HashMap<String, Object> {
-    
+
     private static String DATA_NAME = "data";
     private static String CODE_NAME = "code";
     private static String MSG_NAME = "msg";
