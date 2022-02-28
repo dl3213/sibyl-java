@@ -26,6 +26,7 @@
     <module>sibyl-mq</module>
     <module>sibyl-sshm</module>
     <module>sibyl-ca</module>
+      <module>sibyl-sshm-web</module>
   </modules>
 
 

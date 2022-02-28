@@ -4,6 +4,8 @@ import com.sibyl.application.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @Classname UserMapper
  * @Description TODO
@@ -13,4 +15,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface UserMapper extends BaseDao<User> {
+
+    List<User> getAll();
 }

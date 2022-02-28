@@ -13,4 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface WarnRecordMapper extends BaseDao<WarnRecord> {
+
 }

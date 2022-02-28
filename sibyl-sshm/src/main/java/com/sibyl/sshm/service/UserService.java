@@ -1,5 +1,8 @@
 package com.sibyl.sshm.service;
 
+
+import com.sibyl.sshm.entity.User;
+
 public interface UserService {
-    void save();
+    User selectById(int id);
 }

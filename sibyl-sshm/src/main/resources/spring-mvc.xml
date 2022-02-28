@@ -1,51 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd
-       http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-<!--    扫描controller组件-->
-        <context:component-scan base-package="com.sibyl.sshm.controller"/>
+    <!-- 扫描web相关的bean -->
+    <context:component-scan base-package="com.sibyl.sshm.controller"/>
 
-<!--        配置内部资源视图解析器-->
-<!--        <bean id="viewResolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-<!--&lt;!&ndash;                <property name="prefix" value="/app/"></property>&ndash;&gt;-->
-<!--&lt;!&ndash;                <property name="suffix" value=".jsp"></property>&ndash;&gt;-->
-<!--        </bean>-->
+    <!-- 开启SpringMVC注解模式 -->
+    <mvc:annotation-driven/>
 
-<!--        配置处理器映射器-->
-<!--        <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-<!--                <property name="messageConverters">-->
-<!--                        <list>-->
-<!--                                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>-->
-<!--                        </list>-->
-<!--                </property>-->
-<!--        </bean>-->
-        <mvc:annotation-driven conversion-service="conversionService"/>
+    <!-- 静态资源默认servlet配置 -->
+    <mvc:default-servlet-handler/>
 
-<!--       开发资源的访问权限-->
-<!--        <mvc:resources mapping="/js/**" location="/app/"/>-->
-        <mvc:default-servlet-handler/>
-
-        <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-                <property name="converters">
-                        <list>
-                                <bean class="com.sibyl.sshm.converter.DateConverter"/>
-                        </list>
-                </property>
-        </bean>
+    <!-- 配置jsp 显示ViewResolver -->
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+<!--        <property name="prefix" value="/WEB-INF/views/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
 </beans>

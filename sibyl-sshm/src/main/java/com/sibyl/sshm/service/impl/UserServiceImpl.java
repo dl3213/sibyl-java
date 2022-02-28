@@ -1,8 +1,11 @@
 package com.sibyl.sshm.service.impl;
 
 import com.sibyl.sshm.dao.UserDao;
+import com.sibyl.sshm.entity.User;
 import com.sibyl.sshm.service.UserService;
-import lombok.Setter;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @Classname UserServiceImpl
@@ -10,22 +13,14 @@ import lombok.Setter;
  * @Author dyingleaf3213
  * @Create 2022/02/27 12:09
  */
-
+@Service("UserService")
 public class UserServiceImpl implements UserService {
 
-    @Setter
+    @Resource
     private UserDao userDao;
 
-    public UserServiceImpl() {
-    }
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
     @Override
-    public void save() {
-        System.err.println("service save");
-        userDao.save();
+    public User selectById(int id) {
+        return userDao.findUserById(id);
     }
 }

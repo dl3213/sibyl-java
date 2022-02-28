@@ -40,6 +40,12 @@ public class DbTest {
 
     @Resource
     DataSource dataSource;
+
+    @Test
+    public void test02(){
+        userMapper.getAll().forEach(System.err::println);
+    }
+
     @Test
     public void test01(){
         String s = DigestUtils.md5DigestAsHex(("123456"+"sibyl").getBytes());
