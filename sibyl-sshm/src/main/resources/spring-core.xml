@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/p
+       http://www.springframework.org/schema/p/spring-p.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- 扫描service包下所有使用注解的类型 -->
-    <context:component-scan base-package="com.sibyl.sshm.service"/>
+    <context:component-scan base-package="com.sibyl.sshm"/>
     <!-- 加上这一行以后，将自动扫描路径下面的包，如果一个类带了@Service注解，将自动注册到Spring容器，不需要再在applicationContext.xml文件定义bean了，类似的还包括@Component、@Repository、@Controller。 -->
 
     <!-- 配置数据库相关参数properties的属性：${url} -->
@@ -51,7 +57,45 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="hbmTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+          p:sessionFactory-ref="sessionFactory"/>
+
     <!-- 配置基于注解的声明式事务 -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven transaction-manager="hbmTransactionManager" />
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" lazy-init="false">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+        <!-- 加载实体类的映射文件位置及名称 -->
+        <property name="mappingLocations" value="classpath:pojo/*.hbm.xml"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+                <!-- 配置current session的上下文环境，方便我们调用sessionFactory获取当前线程统一个session对象 -->
+                <prop key="current_session_context_class">thread</prop>
+                <!-- 用更漂亮的格式显示sql语句-->
+                 <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.show_sql">false</prop>
+            </props>
+        </property>
+        <!-- 注解方式配置 -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.sibyl.sshm.entity</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 导入外部的配置文件 -->
+<!--    <import resource="classpath:applicationContext-beans.xml"/>-->
+
+    <bean id="hibernateTemplate"
+          class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="roleDao" class="com.sibyl.sshm.hbmDao.impl.RoleDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
 </beans>
