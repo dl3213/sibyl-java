@@ -1,6 +1,8 @@
 package com.sibyl.sshm;
 
+import com.alibaba.fastjson.JSONObject;
 import com.sibyl.sshm.entity.Role;
+import com.sibyl.sshm.entity.RoleMenu;
 import com.sibyl.sshm.hbmDao.RoleDao;
 import com.sibyl.sshm.service.RoleService;
 import com.sibyl.sshm.service.UserService;
@@ -35,11 +37,23 @@ public class SpringTest {
 
     @Test
     public void test7() throws IOException {
-        System.err.println(roleDao.findAll());
+//        System.err.println(roleDao.query(null));
+        roleDao.query(null).stream().forEach(e->{
+            System.err.println(JSONObject.toJSONString(e));
+        });
 
-        System.err.println(hibernateTemplate);
+//        hibernateTemplate.find("select r.id,r.name,rm.menuId " +
+//                "from Role r " +
+//                "left join RoleMenu rm on r.id = rm.roleId").stream().forEach(e->{
+//            System.err.println(JSONObject.toJSONString(e));
+//        });
 
+        //System.err.println(roleDao.findAll());
+
+//        System.err.println(hibernateTemplate);
+//
         System.err.println(hibernateTemplate.loadAll(Role.class));
+        System.err.println(hibernateTemplate.loadAll(RoleMenu.class));
     }
 
     @Test

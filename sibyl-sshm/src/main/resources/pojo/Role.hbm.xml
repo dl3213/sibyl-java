@@ -15,5 +15,10 @@
         <property name="key" type="java.lang.String">
             <column name="key" />
         </property>
+        
+<!--        <set name="menus" table="role_menu">-->
+<!--            <key column="role_id"></key>-->
+<!--            <one-to-many class="com.sibyl.sshm.entity.RoleMenu"></one-to-many>-->
+<!--        </set>-->
     </class>
 </hibernate-mapping>

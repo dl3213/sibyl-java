@@ -10,4 +10,6 @@ public interface RoleDao {
      public void save(Role book);
      public void update(Role book);
      public void delete(int id);
+
+     List<Object> query(String sql);
 }

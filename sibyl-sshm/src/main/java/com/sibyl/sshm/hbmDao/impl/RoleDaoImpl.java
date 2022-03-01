@@ -37,6 +37,8 @@ public class RoleDaoImpl implements RoleDao {
     public List<Role> findAll() {
         String hql = "from Role";
         Query<Role> query = this.getSession().createQuery(hql);
+//        query.setFirstResult(0);
+//        query.setMaxResults(1);
         return query.list();
     }
     @Override
@@ -56,5 +58,22 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public void delete(int id) {
         // TODO Auto-generated method stub
+    }
+
+    @Override
+    public List<Object> query(String sql) {
+//        Query query = getSession().createQuery(" SELECT DISTINCT m.key  " +
+//                "FROM user_role ur  " +
+//                "LEFT JOIN role r on ur.role_id = r.id  " +
+//                "LEFT JOIN role_menu rm on ur.role_id = rm.role_id " +
+//                "LEFT JOIN menu m on m.id = rm.menu_id " +
+//                "where user_id = 3213");
+        //r.id,r.name,rm.menuId
+        Query query = getSession().createQuery("select r.id,r.name,rm.menuId " +
+                "from Role r " +
+                "left join RoleMenu rm on r.id = rm.roleId");
+
+        List list = query.list();
+        return list;
     }
 }
