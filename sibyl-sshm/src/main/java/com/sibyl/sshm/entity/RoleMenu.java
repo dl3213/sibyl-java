@@ -19,11 +19,18 @@ import java.io.Serializable;
 public class RoleMenu implements Serializable {
 
     private Long id;
-
     private Long roleId;
     private Long menuId;
 
 //    private Role role;
 
-
+////    @Id
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+    
 }

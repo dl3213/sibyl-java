@@ -6,6 +6,9 @@ import com.sibyl.sshm.entity.RoleMenu;
 import com.sibyl.sshm.hbmDao.RoleDao;
 import com.sibyl.sshm.service.RoleService;
 import com.sibyl.sshm.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -24,6 +27,7 @@ import java.io.IOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)  //进行测试要使用的工具
 @ContextConfiguration("classpath:spring-core.xml") //指定配置所在位置
+@Slf4j
 public class SpringTest {
 
     @Resource
@@ -58,6 +62,14 @@ public class SpringTest {
 
     @Test
     public void test6() throws IOException {
+    	
+    	RoleMenu e = new RoleMenu();
+    	e.setId(123l);
+    	System.err.println(e.getId());
+    	System.err.println(e);
+    	
+    	log.debug("test");
+    	
         System.err.println(userService.selectById(3210));
         System.err.println(userService.selectById(3213));
 

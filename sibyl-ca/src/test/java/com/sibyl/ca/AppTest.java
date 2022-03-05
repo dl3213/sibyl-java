@@ -28,7 +28,7 @@ public class AppTest {
 
     @Test
     public void test(){
-        System.err.println(menuMapper.selectKeysByUserId(3213L));
+        System.err.println(userMapper.selectList(null));
 
         //userMapper.selectList(null).forEach(System.err::println);
 //        System.err.println(redisUtil);

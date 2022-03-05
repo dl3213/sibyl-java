@@ -3,7 +3,6 @@ package com.sibyl.application.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 import lombok.experimental.Accessors;
-import lombok.experimental.SuperBuilder;
 
 /**
  * @Classname User
@@ -14,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder(toBuilder = true)
+//@SuperBuilder(toBuilder = true)
 @TableName("user")
 @EqualsAndHashCode
 @Accessors(chain = true)
