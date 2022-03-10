@@ -54,13 +54,13 @@
         </dependency>
 
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.aspectj/aspectjweaver &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.aspectj</groupId>-->
-<!--            <artifactId>aspectjweaver</artifactId>-->
-<!--            <version>1.9.8.M1</version>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.8.M1</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
 <!--        <dependency>-->

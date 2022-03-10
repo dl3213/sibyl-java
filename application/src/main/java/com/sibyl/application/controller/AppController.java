@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -35,55 +36,47 @@ public class AppController {
 
         long start = System.currentTimeMillis();
 
+        System.err.println(threadPoolTaskExecutor);
+        System.err.println("threadPoolTaskExecutor.getPoolSize() => " + threadPoolTaskExecutor.getPoolSize());
+        System.err.println("threadPoolTaskExecutor.getCorePoolSize() => " + threadPoolTaskExecutor.getCorePoolSize());
+        System.err.println("threadPoolTaskExecutor.getMaxPoolSize() => " + threadPoolTaskExecutor.getMaxPoolSize());
+        System.err.println("threadPoolTaskExecutor.getActiveCount() => " + threadPoolTaskExecutor.getActiveCount());
+
         AtomicReference<String> ret = new AtomicReference<>("test ret");
+        List<Integer> retList = new ArrayList<>();
 
         int[] arr = {1,2,3,4,5};
+
+        //同步执行
+//        Arrays.stream(arr).forEach(i->{
+//            retList.add(threadFunctionTest(i));
+//        });
+
+        //异步执行
         List<CompletableFuture<?>> futures =
                 Arrays.stream(arr)
-                        .mapToObj(e->CompletableFuture.runAsync(()->{
-                            System.err.println(e*100);
-                            System.err.println(Thread.currentThread().toString());
-                            try {
-                                Thread.sleep(e*100);
-                            } catch (InterruptedException ex) {
-                                ex.printStackTrace();
-                            }
+                        .mapToObj(e-> CompletableFuture.runAsync(()->{
+                            int get = threadFunctionTest(e);
+                            retList.add(get);
                         },threadPoolTaskExecutor))
                         .collect(Collectors.toList());
 
         CompletableFuture.allOf(futures.toArray(new CompletableFuture<?>[futures.size()])).get();
 
-//        CompletableFuture<Void> future1 = CompletableFuture.runAsync(() -> {
-//            String future11 = "future1";
-//            System.err.println(future11);
-//            System.err.println(Thread.currentThread().toString());
-//            try {
-//                Thread.sleep(300);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            System.err.println(future11);
-//            ret.set(future11);
-//        }, threadPoolTaskExecutor);
-//
-//        CompletableFuture<Void> future2 = CompletableFuture.runAsync(() -> {
-//            String future21 = "future2";
-//            System.err.println(future21);
-//            System.err.println(Thread.currentThread().toString());
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            System.err.println(future21);
-//            ret.set(future21);
-//        }, threadPoolTaskExecutor);
-//
-//        CompletableFuture.allOf(future1,future2).get();
-        System.err.println("cost ==> ");
-        System.err.println(System.currentTimeMillis()-start);
+        System.err.println("cost ==> " + (System.currentTimeMillis()-start));
+        System.err.println(retList);
+        return retList;
+    }
 
-        return ret;
+    private int threadFunctionTest(int e) {
+        int x = e * 100;
+        System.err.println(Thread.currentThread().toString() + " get => " + x);
+        try {
+            Thread.sleep(x);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        return x;
     }
 
 
